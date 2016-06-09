@@ -11,8 +11,9 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.IO;
 
 using GenCode128;
+using System.Collections.Generic;
 
-namespace Sample
+namespace BarcodeGen
 {
 	/// <summary>
 	/// Summary description for Form1.
@@ -104,9 +105,9 @@ namespace Sample
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(8, 12);
+            this.label1.Location = new System.Drawing.Point(10, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 16);
+            this.label1.Size = new System.Drawing.Size(100, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Text to encode";
             // 
@@ -114,17 +115,17 @@ namespace Sample
             // 
             this.txtInput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtInput.Location = new System.Drawing.Point(96, 8);
+            this.txtInput.Location = new System.Drawing.Point(115, 9);
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(436, 20);
+            this.txtInput.Size = new System.Drawing.Size(415, 22);
             this.txtInput.TabIndex = 1;
             this.txtInput.Text = "12345678";
             // 
             // cmdMakeBarcode
             // 
-            this.cmdMakeBarcode.Location = new System.Drawing.Point(192, 36);
+            this.cmdMakeBarcode.Location = new System.Drawing.Point(230, 42);
             this.cmdMakeBarcode.Name = "cmdMakeBarcode";
-            this.cmdMakeBarcode.Size = new System.Drawing.Size(92, 23);
+            this.cmdMakeBarcode.Size = new System.Drawing.Size(111, 26);
             this.cmdMakeBarcode.TabIndex = 2;
             this.cmdMakeBarcode.Text = "Make barcode";
             this.cmdMakeBarcode.Click += new System.EventHandler(this.cmdMakeBarcode_Click);
@@ -135,27 +136,27 @@ namespace Sample
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictBarcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictBarcode.Location = new System.Drawing.Point(8, 162);
+            this.pictBarcode.Location = new System.Drawing.Point(10, 187);
             this.pictBarcode.Name = "pictBarcode";
-            this.pictBarcode.Size = new System.Drawing.Size(528, 136);
+            this.pictBarcode.Size = new System.Drawing.Size(525, 105);
             this.pictBarcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictBarcode.TabIndex = 3;
             this.pictBarcode.TabStop = false;
             // 
             // txtWeight
             // 
-            this.txtWeight.Location = new System.Drawing.Point(96, 36);
+            this.txtWeight.Location = new System.Drawing.Point(115, 42);
             this.txtWeight.Name = "txtWeight";
-            this.txtWeight.Size = new System.Drawing.Size(44, 20);
+            this.txtWeight.Size = new System.Drawing.Size(53, 22);
             this.txtWeight.TabIndex = 5;
             this.txtWeight.Text = "1";
             this.txtWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(8, 40);
+            this.label2.Location = new System.Drawing.Point(10, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 16);
+            this.label2.Size = new System.Drawing.Size(100, 19);
             this.label2.TabIndex = 4;
             this.label2.Text = "Bar weight";
             // 
@@ -166,59 +167,59 @@ namespace Sample
             // cmdPrint
             // 
             this.cmdPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdPrint.Location = new System.Drawing.Point(460, 306);
+            this.cmdPrint.Location = new System.Drawing.Point(444, 301);
             this.cmdPrint.Name = "cmdPrint";
-            this.cmdPrint.Size = new System.Drawing.Size(75, 23);
+            this.cmdPrint.Size = new System.Drawing.Size(90, 27);
             this.cmdPrint.TabIndex = 6;
             this.cmdPrint.Text = "Print";
             this.cmdPrint.Click += new System.EventHandler(this.cmdPrint_Click);
             // 
             // scaleTxtBox
             // 
-            this.scaleTxtBox.Location = new System.Drawing.Point(96, 66);
+            this.scaleTxtBox.Location = new System.Drawing.Point(115, 76);
             this.scaleTxtBox.Name = "scaleTxtBox";
-            this.scaleTxtBox.Size = new System.Drawing.Size(44, 20);
+            this.scaleTxtBox.Size = new System.Drawing.Size(53, 22);
             this.scaleTxtBox.TabIndex = 8;
             this.scaleTxtBox.Text = "25";
             this.scaleTxtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(8, 70);
+            this.label3.Location = new System.Drawing.Point(10, 81);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 16);
+            this.label3.Size = new System.Drawing.Size(100, 18);
             this.label3.TabIndex = 7;
             this.label3.Text = "Width Scale";
             // 
             // HeightScaleTxtBox
             // 
-            this.HeightScaleTxtBox.Location = new System.Drawing.Point(96, 94);
+            this.HeightScaleTxtBox.Location = new System.Drawing.Point(115, 108);
             this.HeightScaleTxtBox.Name = "HeightScaleTxtBox";
-            this.HeightScaleTxtBox.Size = new System.Drawing.Size(44, 20);
+            this.HeightScaleTxtBox.Size = new System.Drawing.Size(53, 22);
             this.HeightScaleTxtBox.TabIndex = 10;
             this.HeightScaleTxtBox.Text = "20";
             this.HeightScaleTxtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(8, 98);
+            this.label4.Location = new System.Drawing.Point(10, 113);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 16);
+            this.label4.Size = new System.Drawing.Size(100, 19);
             this.label4.TabIndex = 9;
             this.label4.Text = "Height Scale";
             // 
             // btnMakePdf
             // 
-            this.btnMakePdf.Location = new System.Drawing.Point(192, 70);
+            this.btnMakePdf.Location = new System.Drawing.Point(230, 81);
             this.btnMakePdf.Name = "btnMakePdf";
-            this.btnMakePdf.Size = new System.Drawing.Size(92, 23);
+            this.btnMakePdf.Size = new System.Drawing.Size(111, 26);
             this.btnMakePdf.TabIndex = 11;
             this.btnMakePdf.Text = "Make PDF";
             this.btnMakePdf.Click += new System.EventHandler(this.btnMakePdf_Click);
             // 
             // BarcodeGen
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+            this.AutoScaleBaseSize = new System.Drawing.Size(6, 15);
             this.ClientSize = new System.Drawing.Size(540, 336);
             this.Controls.Add(this.btnMakePdf);
             this.Controls.Add(this.HeightScaleTxtBox);
@@ -303,19 +304,26 @@ namespace Sample
           Page = new PdfPage(Document);
           Contents = new PdfContents(Page);
 
-          ulong startNum = 1000;
-          for (double j = 0.5; j < 10.5; j += 0.5)
-          {
-              for (double i = 0.375; i < 8.375; i += 2)
-              {
-                  DrawBox(i, j);                  
-                  DrawBarcode(i, j, startNum.ToString());
-                  DrawNumber(i, j, startNum.ToString());
-                  DrawTextBox(i, j, "ABCDEFGHIJKLMNOPQRSTUVWXY");
-                  DrawTextBox(i, j-0.1, "ABCDEFGHIJKLMNOPQRSTUVWXY");
-                  startNum++;
-              }
-          }
+            IPartDataAdapter adapter = new ExamplePartDataAdapter();
+            List<Part> parts = adapter.GetPartsData();
+
+            try
+            {
+                int index = 0;
+                for (double j = 0.5; j < 10.5; j += 0.5)
+                {
+                    for (double i = 0.375; i < 8.375; i += 2)
+                    {
+                        Part part = parts[index++];
+                        DrawBox(i, j);
+                        DrawBarcode(i, j, "" + part.GetId());
+                        DrawNumber(i, j, "" + part.GetId());
+                        DrawTextBox(i, j, part.GetName());
+                        DrawTextBox(i, j - 0.1, part.GetName());
+                    }
+                }
+            }
+            catch (ArgumentOutOfRangeException error) { }
           Document.CreateFile();
 
           // start default PDF reader and display the file
@@ -433,9 +441,9 @@ namespace Sample
           return;
       }
 
-      ////////////////////////////////////////////////////////////////////
-      // Draw box
-      ////////////////////////////////////////////////////////////////////
+      /*******************************************************************
+       ** Draw box
+       ********************************************************************/
 
       private void DrawBox(double i, double j)
       {
